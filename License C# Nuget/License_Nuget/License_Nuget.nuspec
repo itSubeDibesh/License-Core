@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>License_CodeAppStore_Nuget</id>
+    <version>1.0.1</version>
+    <title>License_CodeAppStore_Nuget</title>
+    <authors>Dibehs Raj Subedi, Apaar Dahal</authors>
+    <owners>Dibesh Raj Subedi, CodeAppStore</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/CodeAppStoreDev/License</projectUrl>
+    <iconUrl>https://codeappstore.com/icons/Image/counseling-licensed-icon.png</iconUrl>
+    <description>This is a License Server for CodeAppStore. The purpose of this service is to issue and verify license for CodeAppStore Projects.</description>
+    <releaseNotes>CodeAppStore License Server</releaseNotes>
+    <copyright>CodeAppStore</copyright>
+    <tags>License CodeAppStore License_Server Verify_License Generate_License</tags>
+  </metadata>
+</package>
