@@ -1,4 +1,4 @@
-﻿namespace License.EncodeDecodeRepo
+﻿namespace CodeAppStore.License.Console.EncodeDecodeRepo
 {
     /// <summary>
     /// Encode Decode interface

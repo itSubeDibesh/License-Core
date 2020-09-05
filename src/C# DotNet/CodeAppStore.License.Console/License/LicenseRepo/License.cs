@@ -1,9 +1,9 @@
-﻿using License.RandomStringRepo;
+﻿using CodeAppStore.License.Console.RandomStringRepo;
 using System;
 using System.Globalization;
 using System.Text.RegularExpressions;
 
-namespace License.LicenseRepo
+namespace CodeAppStore.License.Console.LicenseRepo
 {
     /// <summary>
     /// License Class used to generate and verify license

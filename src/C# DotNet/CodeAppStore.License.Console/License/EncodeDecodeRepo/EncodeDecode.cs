@@ -3,7 +3,7 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace License.EncodeDecodeRepo
+namespace CodeAppStore.License.Console.EncodeDecodeRepo
 {
     /// <summary>
     /// Encode Decode Class

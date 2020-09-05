@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace License.RandomStringRepo
+namespace CodeAppStore.License.Console.RandomStringRepo
 {
     /// <summary>
     /// Random String Class

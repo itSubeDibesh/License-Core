@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace License.LicenseRepo
+namespace CodeAppStore.License.Console.LicenseRepo
 {
     /// <summary>
     /// Interface of License

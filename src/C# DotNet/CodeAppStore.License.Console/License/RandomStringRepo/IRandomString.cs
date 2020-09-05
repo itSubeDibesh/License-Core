@@ -1,4 +1,4 @@
-﻿namespace License.RandomStringRepo
+﻿namespace CodeAppStore.License.Console.RandomStringRepo
 {
     /// <summary>
     /// Random String interface
