@@ -1,4 +1,4 @@
-﻿namespace License_Nuget.RandomStringRepo
+﻿namespace CodeAppStore.License.RandomStringRepo
 {
     /// <summary>
     /// Purpose of String Enum used to define values from 0-3

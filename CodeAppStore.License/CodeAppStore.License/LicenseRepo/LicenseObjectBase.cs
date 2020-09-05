@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace License_Nuget.LicenseRepo
+namespace CodeAppStore.License.LicenseRepo
 {
     /// <summary>
     /// License Object Base returned after License details is decoded

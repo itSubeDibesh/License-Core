@@ -1,4 +1,4 @@
-﻿namespace License_Nuget.LicenseRepo
+﻿namespace CodeAppStore.License.LicenseRepo
 {
     /// <summary>
     /// License Object <see cref="LicenseObjectBase"/>

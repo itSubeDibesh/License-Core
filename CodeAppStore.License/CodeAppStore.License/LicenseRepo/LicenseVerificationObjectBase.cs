@@ -1,4 +1,4 @@
-﻿namespace License_Nuget.LicenseRepo
+﻿namespace CodeAppStore.License.LicenseRepo
 {
     /// <summary>
     /// License Verification Object Base returned after License is Verified

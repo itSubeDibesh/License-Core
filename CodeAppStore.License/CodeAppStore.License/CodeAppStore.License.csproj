@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <ApplicationIcon>licenced.ico</ApplicationIcon>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>Sign.pfx</AssemblyOriginatorKeyFile>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>CodeAppStore License project is purposed to issue and verify license.</Description>
+    <Copyright>CodeAppStore</Copyright>
+    <PackageProjectUrl></PackageProjectUrl>
+    <PackageIcon>licensed.png</PackageIcon>
+    <RepositoryUrl></RepositoryUrl>
+    <RepositoryType>Private</RepositoryType>
+    <PackageTags>License CodeAppStore</PackageTags>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Optimize>true</Optimize>
+    <DefineConstants>TRACE;CodeAppStore</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="Images\licensed.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />
+  </ItemGroup>
+
+</Project>

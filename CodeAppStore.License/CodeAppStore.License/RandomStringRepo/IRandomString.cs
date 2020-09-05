@@ -1,4 +1,4 @@
-﻿namespace License_Nuget.RandomStringRepo
+﻿namespace CodeAppStore.License.RandomStringRepo
 {
     /// <summary>
     /// Random String interface

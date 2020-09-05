@@ -1,23 +1,23 @@
-﻿using License_Nuget.RandomStringRepo;
+﻿using CodeAppStore.License.RandomStringRepo;
 using System;
+using System.Configuration;
 using System.Globalization;
 using System.Text.RegularExpressions;
 
-namespace License_Nuget.LicenseRepo
+namespace CodeAppStore.License.LicenseRepo
 {
     /// <summary>
     /// License Class used to generate and verify license
     /// </summary>
-    [System.Runtime.InteropServices.Guid("5A246B53-C7EF-4508-B2AB-E231BA3C7E79")]
     public class License : RandomString, ILicense
     {
         #region Variables
-        private readonly string _encryptionKey = "LC08E9663TOR3";
-        private readonly string _encryptionFrontier = "LICE";
-        private readonly string _encryptionSuffix = "S";
-        private readonly string _certificateSuffix = "C";
-        private readonly string _projectSuffix = "Z";
-        private readonly string _clientSuffix = "A";
+        private protected readonly string _EK = ConfigurationManager.ConnectionStrings["_EK"].ConnectionString,
+            _EF = ConfigurationManager.ConnectionStrings["_EF"].ConnectionString,
+            _ES = ConfigurationManager.ConnectionStrings["_ES"].ConnectionString,
+            _CES = ConfigurationManager.ConnectionStrings["_CES"].ConnectionString,
+            _PS = ConfigurationManager.ConnectionStrings["_PS"].ConnectionString,
+            _CS = ConfigurationManager.ConnectionStrings["_CS"].ConnectionString;
         #endregion
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace License_Nuget.LicenseRepo
         public string GenerateCertificate(string clientCode, string projectCode)
         {
             // Convert to capital cased random string with concatenated value of client code and project with appended project code
-            return UpperCase(RndString(12, clientCode + projectCode, 8)).Trim() + projectCode + _projectSuffix + projectCode.Length;
+            return UpperCase(RndString(12, clientCode + projectCode, 8)).Trim() + projectCode + _PS + projectCode.Length;
         }
 
         /// <summary>
@@ -71,29 +71,29 @@ namespace License_Nuget.LicenseRepo
         /// If(result == null){"Invalid issued date, Entered issued date should be less than current date."}
         /// </code>
         /// </returns>
-        public string GenerateLicense(string clientCode, string certificate, DateTime issuedDate, DateTime expiryDate)
+        protected string GenerateLicense(string clientCode, string certificate, DateTime issuedDate, DateTime expiryDate)
         {
             if (DateTime.Compare(Convert.ToDateTime(DateTime.Now.ToString("MM/dd/yyyy")), issuedDate) > 0)
             {
                 // Convert to short date string and strip back slash
-                var issued = issuedDate.ToString("MM/dd/yyyy").Replace("/", "");
-                var expiry = expiryDate.ToString("MM/dd/yyyy").Replace("/", "");
+                var id90j = issuedDate.ToString("MM/dd/yyyy").Replace("/", "");
+                var ex0up = expiryDate.ToString("MM/dd/yyyy").Replace("/", "");
                 // Append Frontier, Issued, GenerateCertificate, Client Code, Encryption Key, Project Code and Expiry
-                var license = _encryptionFrontier + issued + certificate + clientCode + _encryptionKey + expiry + _certificateSuffix + issued.Length + _clientSuffix + clientCode.Length;
+                var lc90xs = _EF + id90j + certificate + clientCode + _EK + ex0up + _CES + id90j.Length + _CS + clientCode.Length;
                 // Append Encryption Surfix and Length of License
-                license += _encryptionSuffix + license.Length;
+                lc90xs += _ES + lc90xs.Length;
                 // Append Dash on interval of every 6 digits
-                var generated = Regex.Replace(license, ".{6}", "$0-");
+                var gc0olc = Regex.Replace(lc90xs, ".{6}", "$0-");
                 // Get length of newly generated string with dash
-                var length = generated.Length;
+                var lc0jol = gc0olc.Length;
                 // Check if the lsat digit is dash or not
-                if (length == generated.LastIndexOf("-", StringComparison.Ordinal) + 1)
+                if (lc0jol == gc0olc.LastIndexOf("-", StringComparison.Ordinal) + 1)
                 {
                     //  Remove the dash and reassign to itself
-                    generated = generated.Remove(length - 1, 1);
+                    gc0olc = gc0olc.Remove(lc0jol - 1, 1);
                 }
                 // Return generated string
-                return generated;
+                return gc0olc;
             }
             else
             {
@@ -115,129 +115,129 @@ namespace License_Nuget.LicenseRepo
             if (string.IsNullOrWhiteSpace(license))
                 return null;
             // Fetched License Key 
-            string fetchedLicense = license;
+            string f01 = license;
             // Stripped Value removing dash
-            var stripedLicense = fetchedLicense.Replace("-", "");
+            var sv02 = f01.Replace("-", "");
             // Length of stripped license
-            var lengthOfStripedLicense = stripedLicense.Length;
+            var lsl03 = sv02.Length;
             #endregion
             #region Extract S and value form License Here S = Size of License Excluding value like S52
             // Index of Suffix S which denotes size of string
-            var indexOfSuffixS = stripedLicense.LastIndexOf('S');
+            var iss04 = sv02.LastIndexOf(Convert.ToChar(_ES));
             // Number of Suffix letters used to denote size of license
-            var numberOfSuffixLetterS = lengthOfStripedLicense - indexOfSuffixS;
+            var nsls05 = lsl03 - iss04;
             // Suffix of license including s and value
-            var suffixSRemoved = stripedLicense.Substring(indexOfSuffixS, numberOfSuffixLetterS);
+            var ssr08 = sv02.Substring(iss04, nsls05);
             #endregion
             #region Remove S and value from end
             // Remove S and value from Fetched License
-            var sRemovedLicense = stripedLicense.Remove(indexOfSuffixS, numberOfSuffixLetterS);
+            var sl06 = sv02.Remove(iss04, nsls05);
             // S Removed size of the stripped license
-            var sRemovedActualSize = Convert.ToInt32(suffixSRemoved.Replace("S", ""));
+            var sas07 = Convert.ToInt32(ssr08.Replace(_ES, ""));
             // S Removed License Size
-            var sRemovedSize = sRemovedLicense.Length;
+            var srs09 = sl06.Length;
             // Return Null if the S Removed Size doesn't match
-            if (sRemovedSize != sRemovedActualSize)
+            if (srs09 != sas07)
                 return null;
             #endregion
             #region Extract A and Value and remove it from S-Removed License, Where A = Size of Client code
             // Index of Suffix A which denotes size of string
-            var indexOfSuffixA = sRemovedLicense.LastIndexOf('A');
+            var isa10 = sl06.LastIndexOf(Convert.ToChar(_CS));
             // Number of Suffix letters used to denote Client code
-            var numberOfSuffixLetterA = sRemovedSize - indexOfSuffixA;
+            var nsla11 = srs09 - isa10;
             // Suffix of S-Removed License including A and value
-            var suffixARemoved = sRemovedLicense.Substring(indexOfSuffixA, numberOfSuffixLetterA);
+            var sal12 = sl06.Substring(isa10, nsla11);
             // Remove A and value from S-Removed License
-            var aRemovedLicense = sRemovedLicense.Remove(indexOfSuffixA, numberOfSuffixLetterA);
+            var arl13 = sl06.Remove(isa10, nsla11);
             // A Removed size of the stripped license
-            var aRemovedActualSize = Convert.ToInt32(suffixARemoved.Replace("A", ""));
+            var aras14 = Convert.ToInt32(sal12.Replace(_CS, ""));
             // A Removed License Size
-            var aRemovedSize = aRemovedLicense.Length;
+            var ars15 = arl13.Length;
             #endregion
             #region Extract C and Value and remove it from A-Removed License, Where C = Certificate
             // Index of Suffix C which denotes size of string
-            var indexOfSuffixC = aRemovedLicense.LastIndexOf('C');
+            var isc16 = arl13.LastIndexOf(Convert.ToChar(_CES));
             // Number of Suffix letters used to denote Client code
-            var numberOfSuffixLetterC = aRemovedSize - indexOfSuffixC;
+            var nslc17 = ars15 - isc16;
             // Suffix of A-Removed License including C and value
-            var suffixCRemoved = aRemovedLicense.Substring(indexOfSuffixC, numberOfSuffixLetterC);
+            var scr18 = arl13.Substring(isc16, nslc17);
             // Remove C and value from A-Removed License
-            var cRemovedLicense = aRemovedLicense.Remove(indexOfSuffixC, numberOfSuffixLetterC);
+            var crl19 = arl13.Remove(isc16, nslc17);
             // C Removed size of the stripped license
-            var cRemovedActualSize = Convert.ToInt32(suffixCRemoved.Replace("C", ""));
+            var crsa20 = Convert.ToInt32(scr18.Replace(_CES, ""));
             #endregion
             #region Extract and Remove Fornteer LICE
             // Index of Prefix E out of LICE
-            var indexOfPrefixLice = Convert.ToInt32(sRemovedLicense.IndexOf('E')) + 1;
+            var ipl21 = Convert.ToInt32(sl06.IndexOf('E')) + 1;
             // Remove LICE from C-Removed License
-            var liceRemovedLicense = cRemovedLicense.Remove(0, indexOfPrefixLice);
+            var lrl22 = crl19.Remove(0, ipl21);
             // LICE Removed License Size
-            var liceRemovedSize = liceRemovedLicense.Length;
+            var lrs23 = lrl22.Length;
             #endregion
             #region Extract Expiry Date From LICE Removed Licence
             // Index of Prefix R out of LICE-Removed License
-            var indexOfSuffixR = Convert.ToInt32(liceRemovedLicense.LastIndexOf('R') + 2);
+            var isr24 = Convert.ToInt32(lrl22.LastIndexOf('R') + 2);
             // Number of Suffix letters used to denote Client code
-            var numberOfLetterFromR = liceRemovedSize - indexOfSuffixR;
+            var nlr25 = lrs23 - isr24;
             // Extract Value from R till Last Element
-            var expiryDate = liceRemovedLicense.Substring(indexOfSuffixR, numberOfLetterFromR);
+            var ed26 = lrl22.Substring(isr24, nlr25);
             // Expiry Removed License
-            var expiryRemovedLicense = liceRemovedLicense.Remove(indexOfSuffixR, numberOfLetterFromR);
+            var erl27 = lrl22.Remove(isr24, nlr25);
             // ExpiryRemoved License Size
-            var expiryRemovedSize = expiryRemovedLicense.Length;
+            var ers28 = erl27.Length;
             #endregion
             #region Extract and Remove CodeAppStotre from Expiry Removed License
             // Index of Prefix L out of ExpiryRemoved License
-            var indexOfSuffixL = Convert.ToInt32(expiryRemovedLicense.LastIndexOf('L'));
+            var isl29 = Convert.ToInt32(erl27.LastIndexOf('L'));
             // Number of Suffix letters used to denote Client code
-            var numberOfLetterFromL = expiryRemovedSize - indexOfSuffixL;
+            var nll30 = ers28 - isl29;
             // CODE APP STORE Removed License
-            var codeAppStoreRemovedLicense = expiryRemovedLicense.Remove(indexOfSuffixL, numberOfLetterFromL);
+            var casrl31 = erl27.Remove(isl29, nll30);
             // CodeAppStore removed Size
-            var codeAppStoreRemovedSize = codeAppStoreRemovedLicense.Length;
+            var casrs32 = casrl31.Length;
             #endregion
             #region Remove Client Code
             // Extract Client Code
-            var clientCodeString = codeAppStoreRemovedLicense.Substring(codeAppStoreRemovedSize - aRemovedActualSize);
+            var ccs33 = casrl31.Substring(casrs32 - aras14);
             // Remove client Code From String
-            var clientCodeRemovedLicense =
-                codeAppStoreRemovedLicense.Remove((codeAppStoreRemovedSize - aRemovedActualSize), aRemovedActualSize);
+            var ccrl34 =
+                casrl31.Remove((casrs32 - aras14), aras14);
             // ClientCode Removed Size
-            var clientCodeRemovedSize = clientCodeRemovedLicense.Length;
+            var ccrs34 = ccrl34.Length;
             #endregion
             #region Extract Z and Value and remove it from CodeAppStore-Removed License, Where Z = Project Code
             // Index of Suffix Z which denotes size of string
-            var indexOfSuffixZ = codeAppStoreRemovedLicense.LastIndexOf('Z');
+            var isz35 = casrl31.LastIndexOf(Convert.ToChar(_PS));
             // Number of Suffix letters used to denote Project Code code
-            var numberOfSuffixLetterZ = clientCodeRemovedSize - indexOfSuffixZ;
+            var nslz36 = ccrs34 - isz35;
             // Suffix of Z-Removed License including Z and value
-            var suffixZRemoved = clientCodeRemovedLicense.Substring(indexOfSuffixZ, numberOfSuffixLetterZ);
+            var szr37 = ccrl34.Substring(isz35, nslz36);
 
             // Remove Z and value from CodeAppStore-Removed License
-            var zRemovedLicense = clientCodeRemovedLicense.Remove(indexOfSuffixZ, numberOfSuffixLetterZ);
+            var zrl38 = ccrl34.Remove(isz35, nslz36);
             // Z Removed size of the stripped license
-            var zRemovedActualSize = Convert.ToInt32(suffixZRemoved.Replace("Z", ""));
+            var zrsl39 = Convert.ToInt32(szr37.Replace(_PS, ""));
             #endregion
             #region Separate Certificate and Issued Date
             // Extract Issued Date 
-            var issuedDate = zRemovedLicense.Substring(0, cRemovedActualSize);
+            var id40 = zrl38.Substring(0, crsa20);
             // Remove Certificate From String
-            var certificateString =
-                zRemovedLicense.Remove(0, cRemovedActualSize);
+            var cs41 =
+                zrl38.Remove(0, crsa20);
             //  Certificate String Removed Size
-            var certificateStringRemovedSize = certificateString.Length;
+            var csrs42 = cs41.Length;
             #endregion
             #region Extract Project code from  Certificate String
             // Project Code Out Of Certificate string
-            var projectCodeString = certificateString.Substring(certificateStringRemovedSize - zRemovedActualSize, zRemovedActualSize);
+            var pcs43 = cs41.Substring(csrs42 - zrsl39, zrsl39);
             #endregion
             return new LicenseObject()
             {
-                Certificate = certificateString + suffixZRemoved,
-                ProjectCode = projectCodeString,
-                ClientCode = clientCodeString,
-                Expired = DateParser(expiryDate),
-                Issued = DateParser(issuedDate)
+                Certificate = cs41 + szr37,
+                ProjectCode = pcs43,
+                ClientCode = ccs33,
+                Expired = DateParser(ed26),
+                Issued = DateParser(id40)
             };
         }
 
@@ -250,8 +250,8 @@ namespace License_Nuget.LicenseRepo
         {
             DateTime.TryParseExact(date, "MMddyyyy",
                 CultureInfo.InvariantCulture,
-                DateTimeStyles.None, out var dateParsed);
-            return dateParsed;
+                DateTimeStyles.None, out var dp01);
+            return dp01;
         }
 
         /// <summary>
@@ -263,10 +263,10 @@ namespace License_Nuget.LicenseRepo
         {
             if (string.IsNullOrWhiteSpace(license))
                 return false;
-            var obj = LicenseElements(license);
-            var expiry = obj.Expired;
-            var currentDate = Convert.ToDateTime(DateTime.Now.ToString("MM/dd/yyyy"));
-            if (DateTime.Compare(currentDate, expiry) > 0)
+            var oj09 = LicenseElements(license);
+            var ex09 = oj09.Expired;
+            var cd09 = Convert.ToDateTime(DateTime.Now.ToString("MM/dd/yyyy"));
+            if (DateTime.Compare(cd09, ex09) > 0)
                 return true;
             else
                 return false;
@@ -281,26 +281,26 @@ namespace License_Nuget.LicenseRepo
         {
             if (string.IsNullOrWhiteSpace(license))
                 return null;
-            var obj = LicenseElements(license);
-            var current = (Convert.ToDateTime(DateTime.Now.ToString("MM/dd/yyyy")));
-            var days = (current - obj.Expired).TotalDays;
-            days = Math.Abs(days);
+            var ob909 = LicenseElements(license);
+            var cd980 = (Convert.ToDateTime(DateTime.Now.ToString("MM/dd/yyyy")));
+            var d34a = (cd980 - ob909.Expired).TotalDays;
+            d34a = Math.Abs(d34a);
             if (IsExpired(license))
             {
-                if (days > 1)
+                if (d34a > 1)
                 {
-                    return "Expired " + days + " days ago.";
+                    return "Expired " + d34a + " days ago.";
                 }
                 else
                 {
-                    return "Expired " + days + " day ago.";
+                    return "Expired " + d34a + " day ago.";
                 }
             }
             else
             {
-                if (days > 0)
+                if (d34a > 0)
                 {
-                    return "Expires in " + days + " days.";
+                    return "Expires in " + d34a + " days.";
                 }
                 else
                 {
@@ -326,11 +326,11 @@ namespace License_Nuget.LicenseRepo
                 string.IsNullOrWhiteSpace(projectCode)
                 )
                 return false;
-            var obj = LicenseElements(license);
+            var om90j = LicenseElements(license);
             if (
-                string.Compare(obj.Certificate, certificate, StringComparison.CurrentCulture) == 0 &&
-                string.Compare(obj.ClientCode, clientCode, StringComparison.CurrentCulture) == 0 &&
-                string.Compare(obj.ProjectCode, projectCode, StringComparison.CurrentCulture) == 0
+                string.Compare(om90j.Certificate, certificate, StringComparison.CurrentCulture) == 0 &&
+                string.Compare(om90j.ClientCode, clientCode, StringComparison.CurrentCulture) == 0 &&
+                string.Compare(om90j.ProjectCode, projectCode, StringComparison.CurrentCulture) == 0
                 )
                 return true;
             else
@@ -357,16 +357,16 @@ namespace License_Nuget.LicenseRepo
         public LicenseVerificationObject CheckLicenseVerification(string license, string certificate,
             string clientCode, string projectCode)
         {
-            var verified = IsValid(license, certificate, clientCode, projectCode);
-            if (verified)
+            var vf9j0 = IsValid(license, certificate, clientCode, projectCode);
+            if (vf9j0)
             {
-                var expired = IsExpired(license);
-                var expiry = ExpiresIn(license);
+                var ex9j0 = IsExpired(license);
+                var ex09jl = ExpiresIn(license);
                 return new LicenseVerificationObject()
                 {
-                    IsValid = verified,
-                    Expiry = expiry,
-                    IsExpired = expired
+                    IsValid = vf9j0,
+                    Expiry = ex09jl,
+                    IsExpired = ex9j0
                 };
             }
             return null;

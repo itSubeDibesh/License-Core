@@ -1,21 +1,24 @@
-﻿using System;
+﻿using CodeAppStore.License.EncodeDecodeRepo;
+using System;
+using System.Configuration;
 using System.Text;
 
-namespace License_Nuget.RandomStringRepo
+namespace CodeAppStore.License.RandomStringRepo
 {
     /// <summary>
     /// Random String Class
     /// </summary>
-    public class RandomString : IRandomString
+    public class RandomString : EncodeDecode, IRandomString
     {
         /// <summary>
         /// Uses different characters for different random string as per <see cref="RandomStringPurpose"/>
         /// </summary>
+        private static readonly string _DS = ConfigurationManager.ConnectionStrings["_DS"].ConnectionString;
         private readonly string[] _dictionary =
         {
-            "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890_-@!#+.",
-            "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
-            "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890_"
+            _DS+"_-@!#+.",
+            _DS,
+            _DS+"_"
         };
         private readonly int _minSize = 6;
 
@@ -34,17 +37,17 @@ namespace License_Nuget.RandomStringRepo
             switch (purpose)
             {
                 case 0:
-                    var password = Password(maxSize, purpose);
-                    return capital == true ? (UpperCase(password)) : small == true ? (LowerCase(password)) : (password);
+                    var pwsae9j = Password(maxSize, purpose);
+                    return capital == true ? (UpperCase(pwsae9j)) : small == true ? (LowerCase(pwsae9j)) : (pwsae9j);
                 case 1:
-                    var id = Id(maxSize, purpose);
-                    return capital == true ? (UpperCase(id)) : small == true ? (LowerCase(id)) : (id);
+                    var i9hj = Id(maxSize, purpose);
+                    return capital == true ? (UpperCase(i9hj)) : small == true ? (LowerCase(i9hj)) : (i9hj);
                 case 2:
-                    var token = Token(maxSize, purpose);
-                    return capital == true ? (UpperCase(token)) : small == true ? (LowerCase(token)) : (token);
+                    var tk0hj = Token(maxSize, purpose);
+                    return capital == true ? (UpperCase(tk0hj)) : small == true ? (LowerCase(tk0hj)) : (tk0hj);
                 default:
-                    var defaultStr = "rAnD0mSt3n.g68h9u1q8.aPm.DiBeSh.RaJ.SuBeDi.BySyStEmCoDeApPsToRe";
-                    return capital == true ? (UpperCase(defaultStr)) : small == true ? (LowerCase(defaultStr)) : (defaultStr);
+                    var df9hjk = "rAnD0mSt3n.g68h9u1q8.aPm.DiBeSh.RaJ.SuBeDi." + ConfigurationManager.ConnectionStrings["_CST"].ConnectionString;
+                    return capital == true ? (UpperCase(df9hjk)) : small == true ? (LowerCase(df9hjk)) : (df9hjk);
             }
         }
 
@@ -56,7 +59,7 @@ namespace License_Nuget.RandomStringRepo
         /// <returns><see cref="string"/></returns>
         protected string Password(int maxSize, short purpose)
         {
-            return ("p@sSw0rd" + RndString(maxSize, _dictionary[purpose]) + "BySyStEmCoDeApPsToRe");
+            return (ConfigurationManager.ConnectionStrings["_PW"].ConnectionString + RndString(maxSize, _dictionary[purpose]) + ConfigurationManager.ConnectionStrings["_CST"].ConnectionString);
         }
 
         /// <summary>
@@ -67,7 +70,7 @@ namespace License_Nuget.RandomStringRepo
         /// <returns><see cref="string"/></returns>
         protected string Id(int maxSize, short purpose)
         {
-            return ("uId" + RndString(maxSize, _dictionary[purpose]));
+            return (ConfigurationManager.ConnectionStrings["_UI"].ConnectionString + RndString(maxSize, _dictionary[purpose]));
         }
 
         /// <summary>
@@ -78,7 +81,7 @@ namespace License_Nuget.RandomStringRepo
         /// <returns><see cref="string"/></returns>
         protected string Token(int maxSize, short purpose)
         {
-            return ("tOkEN" + RndString(maxSize, _dictionary[purpose]) + "BySyStEmCoDeApPsToRe");
+            return (ConfigurationManager.ConnectionStrings["_TK"].ConnectionString + RndString(maxSize, _dictionary[purpose]) + ConfigurationManager.ConnectionStrings["_CST"].ConnectionString);
         }
 
         /// <summary>
@@ -110,15 +113,15 @@ namespace License_Nuget.RandomStringRepo
         /// <returns> Random String <see cref="string"/></returns>
         protected string RndString(int maxSize, string dictionary, int? min = null)
         {
-            StringBuilder stringBuilder = new StringBuilder();
-            Random random = new Random();
-            var stringLength = random.Next((int)(min.HasValue ? min : _minSize), maxSize + 1);
-            while (stringLength-- > 0)
+            StringBuilder sb9hjl = new StringBuilder();
+            Random ran9hjk = new Random();
+            var sl9hk = ran9hjk.Next((int)(min.HasValue ? min : _minSize), maxSize + 1);
+            while (sl9hk-- > 0)
             {
-                stringBuilder.Append(dictionary[random.Next(dictionary.Length)]);
+                sb9hjl.Append(dictionary[ran9hjk.Next(dictionary.Length)]);
             }
-            var password = stringBuilder.ToString();
-            return password;
+            var pw9hjl = sb9hjl.ToString();
+            return pw9hjl;
         }
 
     }
