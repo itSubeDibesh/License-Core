@@ -21,10 +21,10 @@ namespace CodeAppStore.License.Console
             System.Console.WriteLine("|----------------------------------------------------------------------------------------|\n");
             System.Console.WriteLine("                        Enter the Values to generate license\n");
 
-            var projectName = "Shahid Bishnu Dhani Memorial Polytechnic Institute";
-            System.Console.WriteLine("   Project Name : {0}", projectName);
-            var email = "dibeshrsubedi@gmail.com";
-            System.Console.WriteLine("          Email : {0}", email);
+            System.Console.Write("       Project Name : ");
+            var projectName = System.Console.ReadLine();
+            System.Console.Write("              Email : ");
+            var email = System.Console.ReadLine();
             try
             {
                 // Issue Date entry
@@ -53,6 +53,8 @@ namespace CodeAppStore.License.Console
                     System.Console.WriteLine("          Input : --------------------------");
                     System.Console.WriteLine("         Issued : {0}", issued.ToShortDateString());
                     System.Console.WriteLine("         Expiry : {0}", expiry.ToShortDateString());
+                    System.Console.WriteLine("   Project Name : {0}", projectName);
+                    System.Console.WriteLine("          Email : {0}", email);
                     System.Console.WriteLine("         Output : --------------------------");
                     System.Console.WriteLine("   Project Code : {0}", projectCode);
                     System.Console.WriteLine("    Client Code : {0}", clientCode);

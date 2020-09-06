@@ -1,4 +1,5 @@
-﻿using CodeAppStore.License.RandomStringRepo;
+﻿using CodeAppStore.License.Models;
+using CodeAppStore.License.RandomStringRepo;
 using System;
 using System.Globalization;
 using System.Text.RegularExpressions;
@@ -10,16 +11,7 @@ namespace CodeAppStore.License.LicenseRepo
     /// </summary>
     public class License : RandomString, ILicense
     {
-        #region Variables
-
-        private protected string _EK = "LC08E9663TOR3",
-            _EF = "LICE",
-            _ES = "S",
-            _CES = "C",
-            _PS = "Z",
-            _CS = "A";
-        #endregion
-
+        static readonly SecretsObject O90Hj = new SecretsObject();
         /// <summary>
         /// Generates client code using email
         /// </summary>
@@ -55,7 +47,7 @@ namespace CodeAppStore.License.LicenseRepo
         public string GenerateCertificate(string clientCode, string projectCode)
         {
             // Convert to capital cased random string with concatenated value of client code and project with appended project code
-            return UpperCase(RndString(12, clientCode + projectCode, 8)).Trim() + projectCode + _PS + projectCode.Length;
+            return UpperCase(RndString(12, clientCode + projectCode, 8)).Trim() + projectCode + O90Hj._PS + projectCode.Length;
         }
 
         /// <summary>
@@ -79,9 +71,9 @@ namespace CodeAppStore.License.LicenseRepo
                 var id90j = issuedDate.ToString("MM/dd/yyyy").Replace("/", "");
                 var ex0up = expiryDate.ToString("MM/dd/yyyy").Replace("/", "");
                 // Append Frontier, Issued, GenerateCertificate, Client Code, Encryption Key, Project Code and Expiry
-                var lc90xs = _EF + id90j + certificate + clientCode + _EK + ex0up + _CES + id90j.Length + _CS + clientCode.Length;
+                var lc90xs = O90Hj._EF + id90j + certificate + clientCode + O90Hj._EK + ex0up + O90Hj._CES + id90j.Length + O90Hj._CS + clientCode.Length;
                 // Append Encryption Surfix and Length of License
-                lc90xs += _ES + lc90xs.Length;
+                lc90xs += O90Hj._ES + lc90xs.Length;
                 // Append Dash on interval of every 6 digits
                 var gc0olc = Regex.Replace(lc90xs, ".{6}", "$0-");
                 // Get length of newly generated string with dash
@@ -123,7 +115,7 @@ namespace CodeAppStore.License.LicenseRepo
             #endregion
             #region Extract S and value form License Here S = Size of License Excluding value like S52
             // Index of Suffix S which denotes size of string
-            var iss04 = sv02.LastIndexOf(Convert.ToChar(_ES));
+            var iss04 = sv02.LastIndexOf(Convert.ToChar(O90Hj._ES));
             // Number of Suffix letters used to denote size of license
             var nsls05 = lsl03 - iss04;
             // Suffix of license including s and value
@@ -133,7 +125,7 @@ namespace CodeAppStore.License.LicenseRepo
             // Remove S and value from Fetched License
             var sl06 = sv02.Remove(iss04, nsls05);
             // S Removed size of the stripped license
-            var sas07 = Convert.ToInt32(ssr08.Replace(_ES, ""));
+            var sas07 = Convert.ToInt32(ssr08.Replace(O90Hj._ES, ""));
             // S Removed License Size
             var srs09 = sl06.Length;
             // Return Null if the S Removed Size doesn't match
@@ -142,7 +134,7 @@ namespace CodeAppStore.License.LicenseRepo
             #endregion
             #region Extract A and Value and remove it from S-Removed License, Where A = Size of Client code
             // Index of Suffix A which denotes size of string
-            var isa10 = sl06.LastIndexOf(Convert.ToChar(_CS));
+            var isa10 = sl06.LastIndexOf(Convert.ToChar(O90Hj._CS));
             // Number of Suffix letters used to denote Client code
             var nsla11 = srs09 - isa10;
             // Suffix of S-Removed License including A and value
@@ -150,13 +142,13 @@ namespace CodeAppStore.License.LicenseRepo
             // Remove A and value from S-Removed License
             var arl13 = sl06.Remove(isa10, nsla11);
             // A Removed size of the stripped license
-            var aras14 = Convert.ToInt32(sal12.Replace(_CS, ""));
+            var aras14 = Convert.ToInt32(sal12.Replace(O90Hj._CS, ""));
             // A Removed License Size
             var ars15 = arl13.Length;
             #endregion
             #region Extract C and Value and remove it from A-Removed License, Where C = Certificate
             // Index of Suffix C which denotes size of string
-            var isc16 = arl13.LastIndexOf(Convert.ToChar(_CES));
+            var isc16 = arl13.LastIndexOf(Convert.ToChar(O90Hj._CES));
             // Number of Suffix letters used to denote Client code
             var nslc17 = ars15 - isc16;
             // Suffix of A-Removed License including C and value
@@ -164,7 +156,7 @@ namespace CodeAppStore.License.LicenseRepo
             // Remove C and value from A-Removed License
             var crl19 = arl13.Remove(isc16, nslc17);
             // C Removed size of the stripped license
-            var crsa20 = Convert.ToInt32(scr18.Replace(_CES, ""));
+            var crsa20 = Convert.ToInt32(scr18.Replace(O90Hj._CES, ""));
             #endregion
             #region Extract and Remove Fornteer LICE
             // Index of Prefix E out of LICE
@@ -207,7 +199,7 @@ namespace CodeAppStore.License.LicenseRepo
             #endregion
             #region Extract Z and Value and remove it from CodeAppStore-Removed License, Where Z = Project Code
             // Index of Suffix Z which denotes size of string
-            var isz35 = casrl31.LastIndexOf(Convert.ToChar(_PS));
+            var isz35 = casrl31.LastIndexOf(Convert.ToChar(O90Hj._PS));
             // Number of Suffix letters used to denote Project Code code
             var nslz36 = ccrs34 - isz35;
             // Suffix of Z-Removed License including Z and value
@@ -216,7 +208,7 @@ namespace CodeAppStore.License.LicenseRepo
             // Remove Z and value from CodeAppStore-Removed License
             var zrl38 = ccrl34.Remove(isz35, nslz36);
             // Z Removed size of the stripped license
-            var zrsl39 = Convert.ToInt32(szr37.Replace(_PS, ""));
+            var zrsl39 = Convert.ToInt32(szr37.Replace(O90Hj._PS, ""));
             #endregion
             #region Separate Certificate and Issued Date
             // Extract Issued Date 

@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "CodeAppStore.License": {
+      "commandName": "Project",
+      "remoteDebugEnabled": false
+    }
+  }
+}

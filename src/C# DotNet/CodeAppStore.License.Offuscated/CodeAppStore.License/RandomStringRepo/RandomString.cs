@@ -1,4 +1,5 @@
 ﻿using CodeAppStore.License.EncodeDecodeRepo;
+using CodeAppStore.License.Models;
 using System;
 using System.Text;
 
@@ -12,13 +13,12 @@ namespace CodeAppStore.License.RandomStringRepo
         /// <summary>
         /// Uses different characters for different random string as per <see cref="RandomStringPurpose"/>
         /// </summary>
-        private const string _DS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
-
+        static readonly SecretsObject O90DFL = new SecretsObject();
         private string[] _dictionary =
         {
-            _DS+"_-@!#+.",
-            _DS,
-            _DS+"_"
+            O90DFL._DS+"_-@!#+.",
+            O90DFL._DS,
+            O90DFL._DS+"_"
         };
         private readonly int _minSize = 6;
 
@@ -46,7 +46,7 @@ namespace CodeAppStore.License.RandomStringRepo
                     var tk0hj = Token(maxSize, purpose);
                     return capital == true ? (UpperCase(tk0hj)) : small == true ? (LowerCase(tk0hj)) : (tk0hj);
                 default:
-                    var df9hjk = "rAnD0mSt3n.g68h9u1q8.aPm.DiBeSh.RaJ.SuBeDi." + "BySyStEmCoDeApPsToRe";
+                    var df9hjk = "rAnD0mSt3n.g68h9u1q8.aPm.DiBeSh.RaJ.SuBeDi." + O90DFL._CST;
                     return capital == true ? (UpperCase(df9hjk)) : small == true ? (LowerCase(df9hjk)) : (df9hjk);
             }
         }
@@ -59,7 +59,7 @@ namespace CodeAppStore.License.RandomStringRepo
         /// <returns><see cref="string"/></returns>
         protected string Password(int maxSize, short purpose)
         {
-            return ("p@sSw0rd" + RndString(maxSize, _dictionary[purpose]) + "BySyStEmCoDeApPsToRe");
+            return (O90DFL._PW + RndString(maxSize, _dictionary[purpose]) + O90DFL._CST);
         }
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace CodeAppStore.License.RandomStringRepo
         /// <returns><see cref="string"/></returns>
         protected string Id(int maxSize, short purpose)
         {
-            return ("uId" + RndString(maxSize, _dictionary[purpose]));
+            return (O90DFL._UI + RndString(maxSize, _dictionary[purpose]));
         }
 
         /// <summary>
@@ -81,7 +81,7 @@ namespace CodeAppStore.License.RandomStringRepo
         /// <returns><see cref="string"/></returns>
         protected string Token(int maxSize, short purpose)
         {
-            return ("tOkEN" + RndString(maxSize, _dictionary[purpose]) + "BySyStEmCoDeApPsToRe");
+            return (O90DFL._TK + RndString(maxSize, _dictionary[purpose]) + O90DFL._CST);
         }
 
         /// <summary>

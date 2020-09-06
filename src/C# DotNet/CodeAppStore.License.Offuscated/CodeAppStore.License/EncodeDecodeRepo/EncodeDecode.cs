@@ -1,3 +1,4 @@
+using CodeAppStore.License.Models;
 using System;
 using System.IO;
 using System.Security.Cryptography;
@@ -10,7 +11,7 @@ namespace CodeAppStore.License.EncodeDecodeRepo
     /// </summary>
     public class EncodeDecode : IEncodeDecode
     {
-        private protected string Ek = "EncryptionKeyCodeAppStore@020EncryptStringSalt_zwZX";
+        private static readonly SecretsObject L0jkMK = new SecretsObject();
 
         /// <summary>
         /// Takes String and Encrypts the string 
@@ -22,7 +23,7 @@ namespace CodeAppStore.License.EncodeDecodeRepo
             byte[] cb9jk = Encoding.Unicode.GetBytes(encryptString);
             using (Aes ecs9jk = Aes.Create())
             {
-                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(Ek, new byte[] {
+                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(L0jkMK.EK, new byte[] {
                     0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76
                 });
                 if (ecs9jk != null)
@@ -54,7 +55,7 @@ namespace CodeAppStore.License.EncodeDecodeRepo
             byte[] cb9jk = Convert.FromBase64String(encryptedText);
             using (Aes ecor9hkl = Aes.Create())
             {
-                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(Ek, new byte[] {
+                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(L0jkMK.EK, new byte[] {
                     0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76
                 });
                 if (ecor9hkl != null)
