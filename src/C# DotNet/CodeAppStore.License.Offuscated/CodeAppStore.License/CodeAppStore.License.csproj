@@ -10,13 +10,14 @@
     <Copyright>CodeAppStore</Copyright>
     <PackageProjectUrl></PackageProjectUrl>
     <PackageIcon>licensed.png</PackageIcon>
-    <RepositoryUrl></RepositoryUrl>
+    <RepositoryUrl>https://github.com/itSubeDibesh/License-Core</RepositoryUrl>
     <RepositoryType>Private</RepositoryType>
     <PackageTags>License CodeAppStore</PackageTags>
-    <AssemblyVersion>1.0.0.01</AssemblyVersion>
-    <FileVersion>1.0.0.01</FileVersion>
+    <AssemblyVersion>1.0.0.02</AssemblyVersion>
+    <FileVersion>1.0.0.02</FileVersion>
     <NeutralLanguage>en</NeutralLanguage>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
+    <PackageReleaseNotes>Made Generate License Accessiable and Encode Decode Accessible As well</PackageReleaseNotes>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <Optimize>true</Optimize>

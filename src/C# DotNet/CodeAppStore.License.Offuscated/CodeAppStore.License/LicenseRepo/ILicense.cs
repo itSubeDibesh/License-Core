@@ -1,4 +1,6 @@
-﻿namespace CodeAppStore.License.LicenseRepo
+﻿using System;
+
+namespace CodeAppStore.License.LicenseRepo
 {
     /// <summary>
     /// Interface of License
@@ -27,15 +29,26 @@
         /// <returns> Certificate <see cref="string"/> </returns>
         string GenerateCertificate(string clientCode, string projectCode);
 
+        /// <summary>
+        ///    Generates license using parameters
+        /// </summary>
+        /// <param name="clientCode"></param>
+        /// <param name="certificate"></param>
+        /// <param name="issuedDate"></param>
+        /// <param name="expiryDate"></param>
+        /// <returns>
+        /// License <see cref="string"/>
+        /// <code>
+        /// If(result == null){"Invalid issued date, Entered issued date should be less than current date."}
+        /// </code>
+        /// </returns>
+        string GenerateLicense(string clientCode, string certificate, DateTime issuedDate, DateTime expiryDate);
 
         /// <summary>
         /// Validates the input
         /// Certificate [<see cref="GenerateCertificate"/>],
         /// ClientCode [<see cref="GenerateClientCode"/>] and
         /// ProjectCode [<see cref="GenerateProjectCode"/>]
-        /// using <see cref="IsValid"/>
-        /// using <see cref="ExpiresIn"/> and 
-        /// using <see cref="IsExpired"/>.
         /// </summary>
         /// <param name="license"></param>
         /// <param name="certificate"></param>

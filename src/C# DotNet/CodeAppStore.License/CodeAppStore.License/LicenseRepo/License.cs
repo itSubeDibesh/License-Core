@@ -71,7 +71,7 @@ namespace CodeAppStore.License.LicenseRepo
         /// If(result == null){"Invalid issued date, Entered issued date should be less than current date."}
         /// </code>
         /// </returns>
-        protected string GenerateLicense(string clientCode, string certificate, DateTime issuedDate, DateTime expiryDate)
+        public string GenerateLicense(string clientCode, string certificate, DateTime issuedDate, DateTime expiryDate)
         {
             if (DateTime.Compare(Convert.ToDateTime(DateTime.Now.ToString("MM/dd/yyyy")), issuedDate) > 0)
             {

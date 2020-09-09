@@ -69,15 +69,27 @@
             <param name="projectCode"></param>
             <returns> Certificate <see cref="T:System.String"/> </returns>
         </member>
+        <member name="M:CodeAppStore.License.LicenseRepo.ILicense.GenerateLicense(System.String,System.String,System.DateTime,System.DateTime)">
+            <summary>
+               Generates license using parameters
+            </summary>
+            <param name="clientCode"></param>
+            <param name="certificate"></param>
+            <param name="issuedDate"></param>
+            <param name="expiryDate"></param>
+            <returns>
+            License <see cref="T:System.String"/>
+            <code>
+            If(result == null){"Invalid issued date, Entered issued date should be less than current date."}
+            </code>
+            </returns>
+        </member>
         <member name="M:CodeAppStore.License.LicenseRepo.ILicense.CheckLicenseVerification(System.String,System.String,System.String,System.String)">
             <summary>
             Validates the input
             Certificate [<see cref="M:CodeAppStore.License.LicenseRepo.ILicense.GenerateCertificate(System.String,System.String)"/>],
             ClientCode [<see cref="M:CodeAppStore.License.LicenseRepo.ILicense.GenerateClientCode(System.String)"/>] and
             ProjectCode [<see cref="M:CodeAppStore.License.LicenseRepo.ILicense.GenerateProjectCode(System.String)"/>]
-            using <see cref="!:IsValid"/>
-            using <see cref="!:ExpiresIn"/> and 
-            using <see cref="!:IsExpired"/>.
             </summary>
             <param name="license"></param>
             <param name="certificate"></param>
