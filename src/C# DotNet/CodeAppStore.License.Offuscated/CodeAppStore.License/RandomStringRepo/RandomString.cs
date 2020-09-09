@@ -14,7 +14,7 @@ namespace CodeAppStore.License.RandomStringRepo
         /// Uses different characters for different random string as per <see cref="RandomStringPurpose"/>
         /// </summary>
         static readonly SecretsObject O90DFL = new SecretsObject();
-        private string[] _dictionary =
+        private readonly string[] _dictionary =
         {
             O90DFL._DS+"_-@!#+.",
             O90DFL._DS,

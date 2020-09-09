@@ -11,9 +11,21 @@
     /// </summary>
     public enum RandomStringPurpose
     {
+        /// <summary>
+        /// Password
+        /// </summary>
         Password,
+        /// <summary>
+        /// Id
+        /// </summary>
         Id,
+        /// <summary>
+        /// Token
+        /// </summary>
         Token,
+        /// <summary>
+        /// Default
+        /// </summary>
         Default
     }
 }

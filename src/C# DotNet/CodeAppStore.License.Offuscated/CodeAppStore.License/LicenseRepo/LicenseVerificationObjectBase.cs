@@ -11,8 +11,17 @@
 
     public class LicenseVerificationObjectBase
     {
+        /// <summary>
+        /// Is Expired
+        /// </summary>
         public bool IsExpired { get; set; }
+        /// <summary>
+        /// Is Valid
+        /// </summary>
         public bool IsValid { get; set; }
+        /// <summary>
+        /// Expiry
+        /// </summary>
         public string Expiry { get; set; }
     }
 }

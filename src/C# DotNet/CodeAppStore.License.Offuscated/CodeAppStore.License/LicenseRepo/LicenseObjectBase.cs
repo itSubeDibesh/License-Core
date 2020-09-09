@@ -14,10 +14,25 @@ namespace CodeAppStore.License.LicenseRepo
     /// </summary>
     public class LicenseObjectBase
     {
+        /// <summary>
+        /// Client Code
+        /// </summary>
         public string ClientCode { get; set; }
+        /// <summary>
+        /// Project Code
+        /// </summary>
         public string ProjectCode { get; set; }
+        /// <summary>
+        /// Certificate
+        /// </summary>
         public string Certificate { get; set; }
+        /// <summary>
+        /// Issued
+        /// </summary>
         public DateTime Issued { get; set; }
+        /// <summary>
+        /// Expired
+        /// </summary>
         public DateTime Expired { get; set; }
     }
 }
