@@ -43,13 +43,16 @@
             this.buttonVerify = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
             this.buttonGenerate = new System.Windows.Forms.Button();
+            this.buttonExistingInformation = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonEncodeDecode = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 155);
+            this.label1.Location = new System.Drawing.Point(22, 129);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(97, 21);
@@ -58,7 +61,7 @@
             // 
             // textBoxClientCode
             // 
-            this.textBoxClientCode.Location = new System.Drawing.Point(127, 153);
+            this.textBoxClientCode.Location = new System.Drawing.Point(127, 127);
             this.textBoxClientCode.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxClientCode.Name = "textBoxClientCode";
             this.textBoxClientCode.Size = new System.Drawing.Size(293, 29);
@@ -67,15 +70,15 @@
             // panelSaperator
             // 
             this.panelSaperator.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panelSaperator.Location = new System.Drawing.Point(9, 493);
+            this.panelSaperator.Location = new System.Drawing.Point(1, 438);
             this.panelSaperator.Name = "panelSaperator";
-            this.panelSaperator.Size = new System.Drawing.Size(443, 10);
+            this.panelSaperator.Size = new System.Drawing.Size(443, 5);
             this.panelSaperator.TabIndex = 2;
             // 
             // labelProjectCode
             // 
             this.labelProjectCode.AutoSize = true;
-            this.labelProjectCode.Location = new System.Drawing.Point(14, 204);
+            this.labelProjectCode.Location = new System.Drawing.Point(14, 178);
             this.labelProjectCode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelProjectCode.Name = "labelProjectCode";
             this.labelProjectCode.Size = new System.Drawing.Size(105, 21);
@@ -84,7 +87,7 @@
             // 
             // textBoxProjectCode
             // 
-            this.textBoxProjectCode.Location = new System.Drawing.Point(127, 201);
+            this.textBoxProjectCode.Location = new System.Drawing.Point(127, 175);
             this.textBoxProjectCode.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxProjectCode.Name = "textBoxProjectCode";
             this.textBoxProjectCode.Size = new System.Drawing.Size(293, 29);
@@ -93,7 +96,7 @@
             // labelCertificate
             // 
             this.labelCertificate.AutoSize = true;
-            this.labelCertificate.Location = new System.Drawing.Point(32, 253);
+            this.labelCertificate.Location = new System.Drawing.Point(32, 227);
             this.labelCertificate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelCertificate.Name = "labelCertificate";
             this.labelCertificate.Size = new System.Drawing.Size(87, 21);
@@ -102,7 +105,7 @@
             // 
             // textBoxCertificate
             // 
-            this.textBoxCertificate.Location = new System.Drawing.Point(127, 249);
+            this.textBoxCertificate.Location = new System.Drawing.Point(127, 223);
             this.textBoxCertificate.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxCertificate.Name = "textBoxCertificate";
             this.textBoxCertificate.Size = new System.Drawing.Size(293, 29);
@@ -111,7 +114,7 @@
             // labelLicense
             // 
             this.labelLicense.AutoSize = true;
-            this.labelLicense.Location = new System.Drawing.Point(51, 302);
+            this.labelLicense.Location = new System.Drawing.Point(51, 276);
             this.labelLicense.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelLicense.Name = "labelLicense";
             this.labelLicense.Size = new System.Drawing.Size(68, 21);
@@ -121,9 +124,9 @@
             // richTextBoxLicense
             // 
             this.richTextBoxLicense.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.richTextBoxLicense.Location = new System.Drawing.Point(127, 297);
+            this.richTextBoxLicense.Location = new System.Drawing.Point(127, 271);
             this.richTextBoxLicense.Name = "richTextBoxLicense";
-            this.richTextBoxLicense.Size = new System.Drawing.Size(293, 174);
+            this.richTextBoxLicense.Size = new System.Drawing.Size(293, 159);
             this.richTextBoxLicense.TabIndex = 5;
             this.richTextBoxLicense.Text = "";
             // 
@@ -141,7 +144,7 @@
             // 
             this.labelLicenseVerifier.AutoSize = true;
             this.labelLicenseVerifier.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelLicenseVerifier.Location = new System.Drawing.Point(158, 25);
+            this.labelLicenseVerifier.Location = new System.Drawing.Point(125, 23);
             this.labelLicenseVerifier.Name = "labelLicenseVerifier";
             this.labelLicenseVerifier.Size = new System.Drawing.Size(235, 64);
             this.labelLicenseVerifier.TabIndex = 6;
@@ -152,11 +155,11 @@
             this.buttonVerify.BackColor = System.Drawing.Color.RoyalBlue;
             this.buttonVerify.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.buttonVerify.ForeColor = System.Drawing.Color.White;
-            this.buttonVerify.Location = new System.Drawing.Point(9, 537);
+            this.buttonVerify.Location = new System.Drawing.Point(262, 449);
             this.buttonVerify.Name = "buttonVerify";
-            this.buttonVerify.Size = new System.Drawing.Size(135, 42);
+            this.buttonVerify.Size = new System.Drawing.Size(171, 42);
             this.buttonVerify.TabIndex = 6;
-            this.buttonVerify.Text = "Verify";
+            this.buttonVerify.Text = "Verify License";
             this.buttonVerify.UseVisualStyleBackColor = false;
             this.buttonVerify.Click += new System.EventHandler(this.ButtonVerify_Click);
             // 
@@ -166,9 +169,9 @@
             this.buttonExit.BackColor = System.Drawing.Color.DarkRed;
             this.buttonExit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.buttonExit.ForeColor = System.Drawing.Color.White;
-            this.buttonExit.Location = new System.Drawing.Point(256, 537);
+            this.buttonExit.Location = new System.Drawing.Point(359, 12);
             this.buttonExit.Name = "buttonExit";
-            this.buttonExit.Size = new System.Drawing.Size(135, 42);
+            this.buttonExit.Size = new System.Drawing.Size(60, 42);
             this.buttonExit.TabIndex = 7;
             this.buttonExit.Text = "Exit";
             this.buttonExit.UseVisualStyleBackColor = false;
@@ -176,16 +179,50 @@
             // 
             // buttonGenerate
             // 
-            this.buttonGenerate.BackColor = System.Drawing.Color.RoyalBlue;
+            this.buttonGenerate.BackColor = System.Drawing.Color.ForestGreen;
             this.buttonGenerate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.buttonGenerate.ForeColor = System.Drawing.Color.White;
-            this.buttonGenerate.Location = new System.Drawing.Point(143, 537);
+            this.buttonGenerate.Location = new System.Drawing.Point(9, 497);
             this.buttonGenerate.Name = "buttonGenerate";
-            this.buttonGenerate.Size = new System.Drawing.Size(135, 42);
+            this.buttonGenerate.Size = new System.Drawing.Size(424, 42);
             this.buttonGenerate.TabIndex = 6;
-            this.buttonGenerate.Text = "Generate";
+            this.buttonGenerate.Text = "Generate License From New Details";
             this.buttonGenerate.UseVisualStyleBackColor = false;
             this.buttonGenerate.Click += new System.EventHandler(this.ButtonGenerate_Click);
+            // 
+            // buttonExistingInformation
+            // 
+            this.buttonExistingInformation.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.buttonExistingInformation.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonExistingInformation.ForeColor = System.Drawing.Color.White;
+            this.buttonExistingInformation.Location = new System.Drawing.Point(9, 545);
+            this.buttonExistingInformation.Name = "buttonExistingInformation";
+            this.buttonExistingInformation.Size = new System.Drawing.Size(424, 42);
+            this.buttonExistingInformation.TabIndex = 6;
+            this.buttonExistingInformation.Text = "Generate License From Existing Details";
+            this.buttonExistingInformation.UseVisualStyleBackColor = false;
+            this.buttonExistingInformation.Click += new System.EventHandler(this.ButtonExistingInformation_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel1.Location = new System.Drawing.Point(1, 108);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(443, 5);
+            this.panel1.TabIndex = 2;
+            // 
+            // buttonEncodeDecode
+            // 
+            this.buttonEncodeDecode.BackColor = System.Drawing.Color.Maroon;
+            this.buttonEncodeDecode.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonEncodeDecode.ForeColor = System.Drawing.Color.White;
+            this.buttonEncodeDecode.Location = new System.Drawing.Point(12, 449);
+            this.buttonEncodeDecode.Name = "buttonEncodeDecode";
+            this.buttonEncodeDecode.Size = new System.Drawing.Size(171, 42);
+            this.buttonEncodeDecode.TabIndex = 6;
+            this.buttonEncodeDecode.Text = "Encode Decode";
+            this.buttonEncodeDecode.UseVisualStyleBackColor = false;
+            this.buttonEncodeDecode.Click += new System.EventHandler(this.ButtonEncodeDecode_Click);
             // 
             // License
             // 
@@ -195,6 +232,9 @@
             this.CancelButton = this.buttonExit;
             this.ClientSize = new System.Drawing.Size(445, 591);
             this.ControlBox = false;
+            this.Controls.Add(this.buttonEncodeDecode);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.buttonExistingInformation);
             this.Controls.Add(this.buttonGenerate);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.buttonVerify);
@@ -246,6 +286,9 @@
         private System.Windows.Forms.Button buttonVerify;
         private System.Windows.Forms.Button buttonExit;
         private System.Windows.Forms.Button buttonGenerate;
+        private System.Windows.Forms.Button buttonExistingInformation;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button buttonEncodeDecode;
     }
 }
 

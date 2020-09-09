@@ -61,8 +61,22 @@ namespace CodeAppStore.License.WinFrom
 
         private void ButtonGenerate_Click(object sender, EventArgs e)
         {
-            Generate generate = new Generate();
+            var generate = new Generate_New();
             generate.Show();
+            this.Hide();
+        }
+
+        private void ButtonExistingInformation_Click(object sender, EventArgs e)
+        {
+            var generate = new Generate_Existing();
+            generate.Show();
+            this.Hide();
+        }
+
+        private void ButtonEncodeDecode_Click(object sender, EventArgs e)
+        {
+            EncodeDecodeText encodeDecode = new EncodeDecodeText();
+            encodeDecode.Show();
             this.Hide();
         }
     }

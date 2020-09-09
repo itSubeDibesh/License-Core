@@ -14,7 +14,7 @@ namespace CodeAppStore.License.WinFrom
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Generate());
+            Application.Run(new License());
         }
     }
 }

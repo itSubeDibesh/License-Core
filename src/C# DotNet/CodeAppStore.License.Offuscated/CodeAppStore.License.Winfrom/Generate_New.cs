@@ -5,11 +5,11 @@ using System.Windows.Forms;
 
 namespace CodeAppStore.License.WinFrom
 {
-    public partial class Generate : Form
+    public partial class Generate_New : Form
     {
         private readonly IEncodeDecode _encodeDecode = new EncodeDecode();
         private readonly ILicense _license = new CodeAppStore.License.LicenseRepo.License();
-        public Generate()
+        public Generate_New()
         {
             InitializeComponent();
         }
