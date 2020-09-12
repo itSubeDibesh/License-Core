@@ -44,7 +44,7 @@
             this.buttonExit = new System.Windows.Forms.Button();
             this.buttonGenerate = new System.Windows.Forms.Button();
             this.buttonExistingInformation = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelSeperator1 = new System.Windows.Forms.Panel();
             this.buttonEncodeDecode = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage)).BeginInit();
             this.SuspendLayout();
@@ -52,7 +52,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 129);
+            this.label1.Location = new System.Drawing.Point(22, 155);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(97, 21);
@@ -61,24 +61,28 @@
             // 
             // textBoxClientCode
             // 
-            this.textBoxClientCode.Location = new System.Drawing.Point(127, 127);
+            this.textBoxClientCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxClientCode.Location = new System.Drawing.Point(137, 158);
             this.textBoxClientCode.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxClientCode.Name = "textBoxClientCode";
-            this.textBoxClientCode.Size = new System.Drawing.Size(293, 29);
-            this.textBoxClientCode.TabIndex = 2;
+            this.textBoxClientCode.Size = new System.Drawing.Size(303, 29);
+            this.textBoxClientCode.TabIndex = 0;
             // 
             // panelSaperator
             // 
+            this.panelSaperator.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelSaperator.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panelSaperator.Location = new System.Drawing.Point(1, 438);
+            this.panelSaperator.Location = new System.Drawing.Point(-7, 465);
             this.panelSaperator.Name = "panelSaperator";
-            this.panelSaperator.Size = new System.Drawing.Size(443, 5);
+            this.panelSaperator.Size = new System.Drawing.Size(470, 6);
             this.panelSaperator.TabIndex = 2;
             // 
             // labelProjectCode
             // 
             this.labelProjectCode.AutoSize = true;
-            this.labelProjectCode.Location = new System.Drawing.Point(14, 178);
+            this.labelProjectCode.Location = new System.Drawing.Point(14, 190);
             this.labelProjectCode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelProjectCode.Name = "labelProjectCode";
             this.labelProjectCode.Size = new System.Drawing.Size(105, 21);
@@ -87,16 +91,17 @@
             // 
             // textBoxProjectCode
             // 
-            this.textBoxProjectCode.Location = new System.Drawing.Point(127, 175);
+            this.textBoxProjectCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxProjectCode.Location = new System.Drawing.Point(137, 192);
             this.textBoxProjectCode.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxProjectCode.Name = "textBoxProjectCode";
-            this.textBoxProjectCode.Size = new System.Drawing.Size(293, 29);
-            this.textBoxProjectCode.TabIndex = 3;
+            this.textBoxProjectCode.Size = new System.Drawing.Size(303, 29);
+            this.textBoxProjectCode.TabIndex = 1;
             // 
             // labelCertificate
             // 
             this.labelCertificate.AutoSize = true;
-            this.labelCertificate.Location = new System.Drawing.Point(32, 227);
+            this.labelCertificate.Location = new System.Drawing.Point(32, 225);
             this.labelCertificate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelCertificate.Name = "labelCertificate";
             this.labelCertificate.Size = new System.Drawing.Size(87, 21);
@@ -105,16 +110,17 @@
             // 
             // textBoxCertificate
             // 
-            this.textBoxCertificate.Location = new System.Drawing.Point(127, 223);
+            this.textBoxCertificate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxCertificate.Location = new System.Drawing.Point(137, 226);
             this.textBoxCertificate.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxCertificate.Name = "textBoxCertificate";
-            this.textBoxCertificate.Size = new System.Drawing.Size(293, 29);
-            this.textBoxCertificate.TabIndex = 4;
+            this.textBoxCertificate.Size = new System.Drawing.Size(303, 29);
+            this.textBoxCertificate.TabIndex = 2;
             // 
             // labelLicense
             // 
             this.labelLicense.AutoSize = true;
-            this.labelLicense.Location = new System.Drawing.Point(51, 276);
+            this.labelLicense.Location = new System.Drawing.Point(51, 262);
             this.labelLicense.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelLicense.Name = "labelLicense";
             this.labelLicense.Size = new System.Drawing.Size(68, 21);
@@ -123,11 +129,12 @@
             // 
             // richTextBoxLicense
             // 
+            this.richTextBoxLicense.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBoxLicense.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.richTextBoxLicense.Location = new System.Drawing.Point(127, 271);
+            this.richTextBoxLicense.Location = new System.Drawing.Point(137, 262);
             this.richTextBoxLicense.Name = "richTextBoxLicense";
-            this.richTextBoxLicense.Size = new System.Drawing.Size(293, 159);
-            this.richTextBoxLicense.TabIndex = 5;
+            this.richTextBoxLicense.Size = new System.Drawing.Size(303, 115);
+            this.richTextBoxLicense.TabIndex = 3;
             this.richTextBoxLicense.Text = "";
             // 
             // pictureBoxImage
@@ -155,10 +162,10 @@
             this.buttonVerify.BackColor = System.Drawing.Color.RoyalBlue;
             this.buttonVerify.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.buttonVerify.ForeColor = System.Drawing.Color.White;
-            this.buttonVerify.Location = new System.Drawing.Point(262, 449);
+            this.buttonVerify.Location = new System.Drawing.Point(163, 383);
             this.buttonVerify.Name = "buttonVerify";
-            this.buttonVerify.Size = new System.Drawing.Size(171, 42);
-            this.buttonVerify.TabIndex = 6;
+            this.buttonVerify.Size = new System.Drawing.Size(183, 42);
+            this.buttonVerify.TabIndex = 4;
             this.buttonVerify.Text = "Verify License";
             this.buttonVerify.UseVisualStyleBackColor = false;
             this.buttonVerify.Click += new System.EventHandler(this.ButtonVerify_Click);
@@ -167,12 +174,14 @@
             // 
             this.buttonExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonExit.BackColor = System.Drawing.Color.DarkRed;
+            this.buttonExit.FlatAppearance.BorderSize = 0;
+            this.buttonExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonExit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.buttonExit.ForeColor = System.Drawing.Color.White;
-            this.buttonExit.Location = new System.Drawing.Point(359, 12);
+            this.buttonExit.Location = new System.Drawing.Point(411, -1);
             this.buttonExit.Name = "buttonExit";
-            this.buttonExit.Size = new System.Drawing.Size(60, 42);
-            this.buttonExit.TabIndex = 7;
+            this.buttonExit.Size = new System.Drawing.Size(52, 31);
+            this.buttonExit.TabIndex = 8;
             this.buttonExit.Text = "Exit";
             this.buttonExit.UseVisualStyleBackColor = false;
             this.buttonExit.Click += new System.EventHandler(this.ButtonExit_Click);
@@ -182,9 +191,9 @@
             this.buttonGenerate.BackColor = System.Drawing.Color.ForestGreen;
             this.buttonGenerate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.buttonGenerate.ForeColor = System.Drawing.Color.White;
-            this.buttonGenerate.Location = new System.Drawing.Point(9, 497);
+            this.buttonGenerate.Location = new System.Drawing.Point(9, 528);
             this.buttonGenerate.Name = "buttonGenerate";
-            this.buttonGenerate.Size = new System.Drawing.Size(424, 42);
+            this.buttonGenerate.Size = new System.Drawing.Size(444, 42);
             this.buttonGenerate.TabIndex = 6;
             this.buttonGenerate.Text = "Generate License From New Details";
             this.buttonGenerate.UseVisualStyleBackColor = false;
@@ -192,34 +201,37 @@
             // 
             // buttonExistingInformation
             // 
-            this.buttonExistingInformation.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.buttonExistingInformation.BackColor = System.Drawing.Color.Indigo;
             this.buttonExistingInformation.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.buttonExistingInformation.ForeColor = System.Drawing.Color.White;
-            this.buttonExistingInformation.Location = new System.Drawing.Point(9, 545);
+            this.buttonExistingInformation.Location = new System.Drawing.Point(9, 576);
             this.buttonExistingInformation.Name = "buttonExistingInformation";
-            this.buttonExistingInformation.Size = new System.Drawing.Size(424, 42);
-            this.buttonExistingInformation.TabIndex = 6;
+            this.buttonExistingInformation.Size = new System.Drawing.Size(444, 42);
+            this.buttonExistingInformation.TabIndex = 7;
             this.buttonExistingInformation.Text = "Generate License From Existing Details";
             this.buttonExistingInformation.UseVisualStyleBackColor = false;
             this.buttonExistingInformation.Click += new System.EventHandler(this.ButtonExistingInformation_Click);
             // 
-            // panel1
+            // panelSeperator1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel1.Location = new System.Drawing.Point(1, 108);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(443, 5);
-            this.panel1.TabIndex = 2;
+            this.panelSeperator1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelSeperator1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panelSeperator1.Location = new System.Drawing.Point(-7, 124);
+            this.panelSeperator1.Name = "panelSeperator1";
+            this.panelSeperator1.Size = new System.Drawing.Size(470, 5);
+            this.panelSeperator1.TabIndex = 2;
             // 
             // buttonEncodeDecode
             // 
             this.buttonEncodeDecode.BackColor = System.Drawing.Color.Maroon;
             this.buttonEncodeDecode.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.buttonEncodeDecode.ForeColor = System.Drawing.Color.White;
-            this.buttonEncodeDecode.Location = new System.Drawing.Point(12, 449);
+            this.buttonEncodeDecode.Location = new System.Drawing.Point(12, 480);
             this.buttonEncodeDecode.Name = "buttonEncodeDecode";
-            this.buttonEncodeDecode.Size = new System.Drawing.Size(171, 42);
-            this.buttonEncodeDecode.TabIndex = 6;
+            this.buttonEncodeDecode.Size = new System.Drawing.Size(182, 42);
+            this.buttonEncodeDecode.TabIndex = 5;
             this.buttonEncodeDecode.Text = "Encode Decode";
             this.buttonEncodeDecode.UseVisualStyleBackColor = false;
             this.buttonEncodeDecode.Click += new System.EventHandler(this.ButtonEncodeDecode_Click);
@@ -228,12 +240,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.CancelButton = this.buttonExit;
-            this.ClientSize = new System.Drawing.Size(445, 591);
+            this.ClientSize = new System.Drawing.Size(461, 630);
             this.ControlBox = false;
             this.Controls.Add(this.buttonEncodeDecode);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelSeperator1);
             this.Controls.Add(this.buttonExistingInformation);
             this.Controls.Add(this.buttonGenerate);
             this.Controls.Add(this.buttonExit);
@@ -251,7 +262,7 @@
             this.Controls.Add(this.label1);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -260,10 +271,12 @@
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(461, 630);
             this.Name = "License";
-            this.Opacity = 0.9D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "License";
             this.Load += new System.EventHandler(this.License_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.License_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.License_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.License_MouseUp);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -287,7 +300,7 @@
         private System.Windows.Forms.Button buttonExit;
         private System.Windows.Forms.Button buttonGenerate;
         private System.Windows.Forms.Button buttonExistingInformation;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelSeperator1;
         private System.Windows.Forms.Button buttonEncodeDecode;
     }
 }

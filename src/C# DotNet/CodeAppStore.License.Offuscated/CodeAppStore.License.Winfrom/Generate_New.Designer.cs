@@ -96,7 +96,7 @@
             this.textBoxProjectName.Location = new System.Drawing.Point(134, 16);
             this.textBoxProjectName.Name = "textBoxProjectName";
             this.textBoxProjectName.Size = new System.Drawing.Size(471, 23);
-            this.textBoxProjectName.TabIndex = 1;
+            this.textBoxProjectName.TabIndex = 0;
             // 
             // textBoxEmail
             // 
@@ -119,7 +119,7 @@
             this.dateTimePickerExpired.Location = new System.Drawing.Point(134, 114);
             this.dateTimePickerExpired.Name = "dateTimePickerExpired";
             this.dateTimePickerExpired.Size = new System.Drawing.Size(471, 23);
-            this.dateTimePickerExpired.TabIndex = 2;
+            this.dateTimePickerExpired.TabIndex = 3;
             // 
             // label1
             // 
@@ -135,7 +135,7 @@
             this.textBoxProjectCode.Location = new System.Drawing.Point(134, 225);
             this.textBoxProjectCode.Name = "textBoxProjectCode";
             this.textBoxProjectCode.Size = new System.Drawing.Size(224, 23);
-            this.textBoxProjectCode.TabIndex = 1;
+            this.textBoxProjectCode.TabIndex = 6;
             // 
             // label5
             // 
@@ -151,7 +151,7 @@
             this.textBoxClientCode.Location = new System.Drawing.Point(134, 260);
             this.textBoxClientCode.Name = "textBoxClientCode";
             this.textBoxClientCode.Size = new System.Drawing.Size(224, 23);
-            this.textBoxClientCode.TabIndex = 1;
+            this.textBoxClientCode.TabIndex = 8;
             // 
             // label6
             // 
@@ -167,7 +167,7 @@
             this.textBoxCertificate.Location = new System.Drawing.Point(134, 294);
             this.textBoxCertificate.Name = "textBoxCertificate";
             this.textBoxCertificate.Size = new System.Drawing.Size(224, 23);
-            this.textBoxCertificate.TabIndex = 1;
+            this.textBoxCertificate.TabIndex = 10;
             // 
             // label7
             // 
@@ -184,7 +184,7 @@
             this.textBoxLicense.Multiline = true;
             this.textBoxLicense.Name = "textBoxLicense";
             this.textBoxLicense.Size = new System.Drawing.Size(224, 50);
-            this.textBoxLicense.TabIndex = 1;
+            this.textBoxLicense.TabIndex = 11;
             // 
             // buttonGenerate
             // 
@@ -194,7 +194,7 @@
             this.buttonGenerate.Location = new System.Drawing.Point(134, 143);
             this.buttonGenerate.Name = "buttonGenerate";
             this.buttonGenerate.Size = new System.Drawing.Size(224, 44);
-            this.buttonGenerate.TabIndex = 3;
+            this.buttonGenerate.TabIndex = 4;
             this.buttonGenerate.Text = "Generate New License";
             this.buttonGenerate.UseVisualStyleBackColor = false;
             this.buttonGenerate.Click += new System.EventHandler(this.ButtonGenerate_Click);
@@ -207,7 +207,7 @@
             this.buttonVerify.Location = new System.Drawing.Point(448, 142);
             this.buttonVerify.Name = "buttonVerify";
             this.buttonVerify.Size = new System.Drawing.Size(157, 45);
-            this.buttonVerify.TabIndex = 6;
+            this.buttonVerify.TabIndex = 5;
             this.buttonVerify.Text = "Back To Verify";
             this.buttonVerify.UseVisualStyleBackColor = false;
             this.buttonVerify.Click += new System.EventHandler(this.ButtonVerify_Click);
@@ -217,21 +217,21 @@
             this.textBoxProduct.Location = new System.Drawing.Point(381, 225);
             this.textBoxProduct.Name = "textBoxProduct";
             this.textBoxProduct.Size = new System.Drawing.Size(224, 23);
-            this.textBoxProduct.TabIndex = 1;
+            this.textBoxProduct.TabIndex = 7;
             // 
             // textBoxClient
             // 
             this.textBoxClient.Location = new System.Drawing.Point(381, 260);
             this.textBoxClient.Name = "textBoxClient";
             this.textBoxClient.Size = new System.Drawing.Size(224, 23);
-            this.textBoxClient.TabIndex = 1;
+            this.textBoxClient.TabIndex = 9;
             // 
             // textBoxCert
             // 
             this.textBoxCert.Location = new System.Drawing.Point(381, 294);
             this.textBoxCert.Name = "textBoxCert";
             this.textBoxCert.Size = new System.Drawing.Size(224, 23);
-            this.textBoxCert.TabIndex = 1;
+            this.textBoxCert.TabIndex = 10;
             // 
             // textBoxLice
             // 
@@ -239,7 +239,7 @@
             this.textBoxLice.Multiline = true;
             this.textBoxLice.Name = "textBoxLice";
             this.textBoxLice.Size = new System.Drawing.Size(224, 50);
-            this.textBoxLice.TabIndex = 1;
+            this.textBoxLice.TabIndex = 11;
             // 
             // label8
             // 
@@ -288,6 +288,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -295,6 +296,9 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Generate License From New Details";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Generate_New_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Generate_New_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Generate_New_MouseUp);
             this.ResumeLayout(false);
             this.PerformLayout();
 

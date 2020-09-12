@@ -4,6 +4,12 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationIcon>licenced.ico</ApplicationIcon>
+    <AssemblyName>CodeAppStore - License Verifier</AssemblyName>
+    <RootNamespace>CodeAppStore - License Verifier</RootNamespace>
+    <StartupObject>CodeAppStore.License.WinFrom.Program</StartupObject>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>CodeAppStore.License.Verifier.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <ItemGroup>

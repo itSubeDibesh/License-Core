@@ -1,12 +1,15 @@
 ﻿using CodeAppStore.License.LicenseRepo;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace CodeAppStore.License.WinFrom
 {
     public partial class License : Form
     {
-        private ILicense _license;
+        private ILicense _license = new LicenseRepo.License();
+        private bool _Dragging; //Var Decleration for Dragable Form
+        private Point _start_point = new Point(0, 0); //Var Decleration for Dragable Form
         public License()
         {
             InitializeComponent();
@@ -40,22 +43,32 @@ namespace CodeAppStore.License.WinFrom
                 _license = new CodeAppStore.License.LicenseRepo.License(); ;
                 try
                 {
-                    var result = _license.CheckLicenseVerification(richTextBoxLicense.Text, textBoxCertificate.Text,
-                        textBoxClientCode.Text, textBoxProjectCode.Text);
-                    MessageBox.Show("Is Valid : " + result.IsValid + ", Is Expired : " + result.IsExpired +
-                                    ", Expiry : " + result.Expiry, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    var result = _license.CheckLicenseVerification(richTextBoxLicense.Text, textBoxCertificate.Text, textBoxClientCode.Text, textBoxProjectCode.Text);
+                    if (result != null)
+                    {
+                        MessageBox.Show("Is Valid : " + result.IsValid + ", Is Expired : " + result.IsExpired +
+                                        ", Expiry : " + result.Expiry, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Some fields might be empty", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        textBoxClientCode.Focus();
+                        return;
+                    }
                     Reset();
                 }
                 catch (Exception exception)
                 {
                     Console.WriteLine(exception);
                     MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
             }
             else
             {
                 MessageBox.Show("Some fields might be empty", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBoxClientCode.Focus();
+                return;
             }
         }
 
@@ -78,6 +91,26 @@ namespace CodeAppStore.License.WinFrom
             EncodeDecodeText encodeDecode = new EncodeDecodeText();
             encodeDecode.Show();
             this.Hide();
+        }
+
+        private void License_MouseDown(object sender, MouseEventArgs e)
+        {
+            _Dragging = true;
+            _start_point = new Point(e.X, e.Y);
+        }
+
+        private void License_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (_Dragging)
+            {
+                var p = PointToScreen(e.Location);
+                Location = new Point(p.X - _start_point.X, p.Y - _start_point.Y);
+            }
+        }
+
+        private void License_MouseUp(object sender, MouseEventArgs e)
+        {
+            _Dragging = false;
         }
     }
 }
